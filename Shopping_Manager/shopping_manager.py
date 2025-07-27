@@ -6,13 +6,13 @@
 
 # import necessary libraries and initialize variables
 import sys
+import time
 shopping_list = []
 
 # Function definitions for managing the shopping list
 
 
 def welcome():
-    import time
     print("Welcome to your shopping list manager!")
     time.sleep(2)
     print()
@@ -53,18 +53,22 @@ def view_items():
     print("Your shopping list:")
     for item in shopping_list:
         print(f"- {item}")
+        if not shopping_list:
+            print("Your shopping list is empty.")
 
 
 def save_list():
-    # safe list in txt file
+    # save list in txt file
     with open("shopping_list.txt", "w") as file:
         for item in shopping_list:
             file.write(f"{item}\n")
 
 
 def close_list():
+
     # close the shopping list manager
     print("Closing the shopping list manager.")
+    time.sleep(2)
     sys.exit()
 
 
